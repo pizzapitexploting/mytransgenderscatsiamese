@@ -16,11 +16,11 @@
             align-items: center;
             height: 100vh;
         }
-        /* Basic styling for the video */
+        /* Basic styling for the video to maintain 4:3 aspect ratio */
         .video-container {
-            width: 100%;
-            max-width: 75vh; /* 4:3 aspect ratio based on height */
-            max-height: 100vh;
+            width: auto;
+            height: 100vh; /* Full height of the viewport */
+            aspect-ratio: 4 / 3; /* Ensures 4:3 aspect ratio */
         }
         video {
             width: 100%;
@@ -31,7 +31,7 @@
 <body>
 
 <div class="video-container">
-    <video id="fullscreenVideo" controls>
+    <video id="fullscreenVideo" autoplay>
         <source src="albuquerque.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -41,10 +41,10 @@
     document.addEventListener("DOMContentLoaded", function() {
         const video = document.getElementById("fullscreenVideo");
 
-        // Enable autoplay with full audio
+        // Enable autoplay with full audio and remove controls
         video.muted = false;
         video.autoplay = true;
-        video.controls = true;
+        video.controls = false;
 
         // Attempt to play the video and set it to fullscreen
         video.play().then(() => {
