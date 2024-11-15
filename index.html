@@ -21,26 +21,28 @@
 
         /* The SWF container */
         #swf-container {
-            height: 100%;
-            width: auto;
-            max-width: 100%;
+            width: 100vw;      /* Full width of viewport */
+            height: 100vh;     /* Full height of viewport */
+            position: absolute; /* Position it absolutely to fill the screen */
+            top: 0;
+            left: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
         }
 
-        /* Ensure Ruffle player scales without stretching */
+        /* Ruffle player to fill the screen */
         .ruffle-player {
-            max-width: 100%;
-            height: 100%;
-            width: auto;
-            object-fit: contain;  /* Keeps aspect ratio */
+            width: 100%;      /* Make Ruffle player fill the width */
+            height: 100%;     /* Make Ruffle player fill the height */
+            object-fit: contain; /* Maintain aspect ratio while scaling */
         }
     </style>
 </head>
 <body>
-    <div id="swf-container"></div>
+    <div id="swf-container">
+        <!-- The SWF player will be injected here -->
+    </div>
 
     <script>
         // Instantiate Ruffle
